@@ -15,15 +15,20 @@ function App() {
   const [currItem, setCurrItem] = useState("");
 
   //////////////////////////// Functions //////////////////////////////////
-  const addToList = () => {
+  const addToList = (e) => {
+    e.preventDefault();
+    //if no input
+    if (currItem.length < 1) return;
+    //if input
     let listCopy = [...list];
     let currNames = list.map((el) => el.name.toLowerCase());
+    //ensure new element is unique
     if (currNames.indexOf(currItem.toLowerCase()) >= 0) {
       alert("already on your list");
       setCurrItem("");
       return;
     }
-    //add user input to list
+    //add to list
     listCopy.push({ name: `${currItem}`, isPinned: false });
     setList(listCopy);
     //reset
@@ -61,13 +66,15 @@ function App() {
         removeFromList={removeFromList}
         handlePin={handlePin}
       ></List>
-      <input
-        onChange={(e) => setCurrItem(e.target.value)}
-        type="text"
-        placeholder="Add New Task?"
-        value={currItem}
-      ></input>
-      <button onClick={() => addToList()}>+</button>
+      <form onSubmit={(e) => addToList(e)}>
+        <input
+          onChange={(e) => setCurrItem(e.target.value)}
+          type="text"
+          placeholder="Add New Task?"
+          value={currItem}
+        ></input>
+        <button type="submit">+</button>
+      </form>
     </div>
   );
 }
