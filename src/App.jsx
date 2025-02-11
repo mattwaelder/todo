@@ -82,8 +82,5 @@ function App() {
 export default App;
 
 /*
-older items should move up
-pinned items should be displayed first
-hitting enter should add items to list
-should start doing some version control...
+should make simple auth/user/db stuff. who cares if its not kept hosted anyway :]
 */
