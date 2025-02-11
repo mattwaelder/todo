@@ -32,6 +32,7 @@
   justify-content: right;
 
   .pinned {
-    color: darkred;
+    /* same for now, can change later */
+    color: light-dark(rgb(200, 10, 10), rgb(200, 10, 10));
   }
 }

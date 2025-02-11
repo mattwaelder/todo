@@ -82,5 +82,7 @@ function App() {
 export default App;
 
 /*
+make it presentable
+make it work well on mobile
 should make simple auth/user/db stuff. who cares if its not kept hosted anyway :]
 */
