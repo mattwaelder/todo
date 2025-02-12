@@ -85,4 +85,8 @@ export default App;
 make it presentable
 make it work well on mobile
 should make simple auth/user/db stuff. who cares if its not kept hosted anyway :]
+
+for db, need to update psql via homebrew
+need to create sql script for schema and populate some test tables
+need to add basic server
 */
