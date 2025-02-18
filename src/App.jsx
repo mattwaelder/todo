@@ -89,4 +89,7 @@ should make simple auth/user/db stuff. who cares if its not kept hosted anyway :
 for db, need to update psql via homebrew
 need to create sql script for schema and populate some test tables
 need to add basic server
+
+
+had env issues. needed to update psql, but also needed to update path of psql in bash profile so that i could run psql commands. this took ages.
 */

@@ -1,12 +1,18 @@
---may need to drop db and add db too
-DROP TABLE IF EXISTS "users";
-DROP TABLE IF EXISTS "tasks";
+-- DROP DATABASE IF EXISTS tododb;
+-- CREATE DATABASE tododb;
+
+-- USE tododb;
+
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS tasks;
+
 
 CREATE TABLE users (
     "id" INTEGER PRIMARY KEY NOT NULL,
     "name" VARCHAR(20) NOT NULL,
     "pass" VARCHAR(20) NOT NULL
 );
+
 CREATE TABLE tasks(
     "id" INTEGER PRIMARY KEY NOT NULL,
     "user_id" REFERENCES users(id) NOT NULL,
@@ -35,3 +41,8 @@ CREATE TABLE tasks(
 --     "users" ADD PRIMARY KEY("id");
 -- ALTER TABLE
 --     "tasks" ADD CONSTRAINT "tasks_user_id_foreign" FOREIGN KEY("user_id") REFERENCES "users"("id");
+
+-----
+
+
+--$ psql -U user_name -d database_name < file.sql
