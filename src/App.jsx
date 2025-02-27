@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import axios from "axios";
 import "./App.scss";
 import List from "./List.jsx";
 
@@ -13,6 +14,8 @@ function App() {
   const [list, setList] = useState(starterList);
   const [displayList, setDisplayList] = useState([]);
   const [currItem, setCurrItem] = useState("");
+  //add to env later
+  const BASE_URL = "http://localhost:3000";
 
   //////////////////////////// Functions //////////////////////////////////
   const addToList = (e) => {
@@ -31,6 +34,13 @@ function App() {
     //add to list
     listCopy.push({ name: `${currItem}`, isPinned: false });
     setList(listCopy);
+    //push to server
+    let pkg = { User: "me", task: currItem };
+
+    axios
+      .post(`${BASE_URL}/tasks`, pkg)
+      .then((res) => console.log(res))
+      .catch((err) => console.warn(err));
     //reset
     setCurrItem("");
   };
