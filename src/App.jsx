@@ -11,6 +11,7 @@ function App() {
     { name: "monkeys", isPinned: false },
     { name: "waffles", isPinned: true },
   ];
+  const [currUser, setCurrUser] = useState("mattwaelder");
   const [list, setList] = useState(starterList);
   const [displayList, setDisplayList] = useState([]);
   const [currItem, setCurrItem] = useState("");
@@ -65,6 +66,15 @@ function App() {
 
     setDisplayList([...pinned, ...unpinned]);
   }, [list]);
+
+  //INIT
+  useEffect(() => {
+    console.log("init");
+    axios
+      .get(`${BASE_URL}/users/?user=${currUser}`)
+      .then((res) => console.log(res))
+      .catch((err) => console.error(err));
+  }, []);
 
   //////////////////////////////////////////////////////////////
 
